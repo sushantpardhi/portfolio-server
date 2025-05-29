@@ -11,6 +11,6 @@ const router = Router();
 
 router.get('/', getPortfolio);
 router.patch('/', verifyAuthKey, updatePortfolio);
-router.post('/', verifyAuthKey, validatePortfolio, createPortfolio);
+router.post('/',  validatePortfolio, createPortfolio);
 
 export default router;
