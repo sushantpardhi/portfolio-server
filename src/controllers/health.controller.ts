@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
 import { HealthCheck } from "../interfaces/health";
 import { dbConnection } from "../config/database";
-import logger from "../utils/logger";
 import os from "os";
-import { execSync } from "child_process";
 
 let requestCount = 0;
 const serverStartTime = new Date();
@@ -14,40 +12,6 @@ export const getHealthStatus = async (
 ): Promise<void> => {
   const startTime = process.hrtime();
   requestCount++;
-
-  // Get disk space info (cross-platform)
-  let diskSpace = { free: "N/A", total: "N/A" };
-  try {
-    if (process.platform === "win32") {
-      const diskInfo = execSync(
-        "wmic logicaldisk get size,freespace,caption"
-      ).toString();
-      const systemDrive = diskInfo
-        .split("\n")
-        .find((line) => line.includes("C:"));
-      if (systemDrive) {
-        const [, free, total] = systemDrive.match(/\d+/g) || [];
-        if (free && total) {
-          diskSpace = {
-            free: `${Math.round(parseInt(free) / 1024 / 1024 / 1024)}GB`,
-            total: `${Math.round(parseInt(total) / 1024 / 1024 / 1024)}GB`,
-          };
-        }
-      }
-    } else {
-      // Unix/Linux systems
-      const diskInfo = execSync("df -k / --output=size,avail").toString();
-      const [, total, free] = diskInfo.match(/(\d+)\s+(\d+)/) || [];
-      if (free && total) {
-        diskSpace = {
-          free: `${Math.round(parseInt(free) / 1024 / 1024)}GB`,
-          total: `${Math.round(parseInt(total) / 1024 / 1024)}GB`,
-        };
-      }
-    }
-  } catch (err) {
-    logger.error("Error getting disk space info:", err);
-  }
 
   // Calculate response time
   const diff = process.hrtime(startTime);
@@ -78,7 +42,6 @@ export const getHealthStatus = async (
       loadAverage: os.loadavg(),
       totalMemory: `${Math.round(os.totalmem() / 1024 / 1024)}MB`,
       freeMemory: `${Math.round(os.freemem() / 1024 / 1024)}MB`,
-      diskSpace,
     },
     performance: {
       memory: {

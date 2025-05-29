@@ -23,10 +23,6 @@ export interface HealthCheck {
     loadAverage: number[];
     totalMemory: string;
     freeMemory: string;
-    diskSpace: {
-      free: string;
-      total: string;
-    };
   };
   performance: {
     memory: {
