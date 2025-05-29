@@ -1,0 +1,72 @@
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables and sensitive data
+.env
+.env.*
+.env.test
+.env.production
+.env.local
+.env.development
+*.pem
+*.key
+*.cert
+*credentials*
+*secret*
+config.json
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Security and sensitive data
+*.pem
+*.key
+*.cert
+*.crt
+*.csr
+*.pfx
+*.p12
+*.keystore
+*.jks
+*id_rsa*
+*id_dsa*
+*.pub
+.htpasswd
+*.htaccess
+*password*
+*api_key*
+*apikey*
+*token*
+*secret*
+*credentials*
+auth.*
+oauth.*
+.npmrc
+.env*
+
+# Database and backups
+*.sql
+*.dump
+*.backup
+*.bak
+db/
+backup/
+data/
