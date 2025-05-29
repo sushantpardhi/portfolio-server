@@ -6,14 +6,15 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "prebuild": "npm install --include=dev",
     "build": "tsc",
     "prebuild:prod": "npm install --include=dev",
     "build:prod": "tsc --sourceMap false",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Sushant pardhi",
+  "license": "",
   "type": "commonjs",
   "engines": {
     "node": "24.1.0"
