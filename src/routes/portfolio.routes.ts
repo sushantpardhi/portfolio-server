@@ -5,11 +5,12 @@ import {
   createPortfolio,
 } from '../controllers/portfolio.controller';
 import { validatePortfolio } from '../validation/portfolio.validation';
+import { verifyAuthKey } from '../middleware/auth';
 
 const router = Router();
 
 router.get('/', getPortfolio);
-router.patch('/', updatePortfolio);
-router.post('/', validatePortfolio, createPortfolio);
+router.patch('/', verifyAuthKey, updatePortfolio);
+router.post('/', verifyAuthKey, validatePortfolio, createPortfolio);
 
 export default router;

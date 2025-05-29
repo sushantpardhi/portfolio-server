@@ -17,9 +17,6 @@ validateEnv();
 
 const app: Express = express();
 
-// Trust proxy - this is important when the app is behind a reverse proxy
-app.set('trust proxy', true);
-
 // Enable CORS early
 app.use(cors());
 
