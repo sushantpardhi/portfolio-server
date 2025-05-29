@@ -5,7 +5,7 @@ import {
   createPortfolio,
 } from '../controllers/portfolio.controller';
 import { validatePortfolio } from '../validation/portfolio.validation';
-import { verifyAuthKey } from '../middleware/auth';
+import { verifyAuthKey } from '../middleware/verifyAuthKey';
 
 const router = Router();
 
