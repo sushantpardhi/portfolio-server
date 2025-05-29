@@ -20,7 +20,7 @@ export async function dbConnection(retryCount = 0): Promise<void> {
   try {
     // Remove any existing listeners before adding new ones
     removeExistingListeners();
-
+ 
     // Configure MongoDB options
     const options = {
       autoIndex: true,
@@ -31,7 +31,6 @@ export async function dbConnection(retryCount = 0): Promise<void> {
     };
 
     await mongoose.connect(MONGODB_URI, options);
-    logger.info("✅ Database connected successfully");
 
     mongoose.connection.on("error", (error) => {
       logger.error("❌ MongoDB connection error:", error);
