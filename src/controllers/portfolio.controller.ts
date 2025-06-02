@@ -10,7 +10,7 @@ const CACHE_EXPIRATION = 3600; // 1 hour
 
 export const getPortfolio = async (
   _req: Request,
-  res: Response,
+  res: Response<any>,
   next: NextFunction
 ) => {
   try {
@@ -46,7 +46,7 @@ export const getPortfolio = async (
 
 export const updatePortfolio = async (
   req: Request,
-  res: Response,
+  res: Response<any>,
   next: NextFunction
 ) => {
   try {
@@ -81,7 +81,7 @@ export const updatePortfolio = async (
 
 export const createPortfolio = async (
   req: Request,
-  res: Response,
+  res: Response<any>,
   next: NextFunction
 ) => {
   try {

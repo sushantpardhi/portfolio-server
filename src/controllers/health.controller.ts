@@ -25,7 +25,7 @@ export const getHealthStatus = async (
       server: `${Math.floor(process.uptime())} seconds`,
       since: serverStartTime,
     },
-    environment: process.env.NODE_ENV,
+    environment: process.env.NODE_ENV ? process.env.NODE_ENV : "development",
     server: {
       nodeVersion: process.version,
       apiVersion: "1.0.0",
