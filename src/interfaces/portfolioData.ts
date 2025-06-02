@@ -39,13 +39,11 @@ export interface PortfolioData {
 
 interface Skill {
   title: string;
-  icon: string;
   description: string;
   technologies: string[];
 }
 
 interface Interest {
-  icon: string;
   title: string;
   description: string;
 }

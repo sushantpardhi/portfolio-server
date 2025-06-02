@@ -5,13 +5,11 @@ export interface IPortfolio extends Document, PortfolioData {}
 
 const SkillSchema = new Schema({
   title: { type: String, required: true },
-  icon: { type: String, required: true },
   description: { type: String, required: true },
   technologies: [{ type: String }],
 });
 
 const InterestSchema = new Schema({
-  icon: { type: String, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
 });

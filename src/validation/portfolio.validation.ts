@@ -17,41 +17,34 @@ const portfolioSchema = Joi.object({
     skills: Joi.object({
       frontend: Joi.object({
         title: Joi.string().required(),
-        icon: Joi.string().required(),
         description: Joi.string().required(),
         technologies: Joi.array().items(Joi.string()).required(),
       }).required(),
       backend: Joi.object({
         title: Joi.string().required(),
-        icon: Joi.string().required(),
         description: Joi.string().required(),
         technologies: Joi.array().items(Joi.string()).required(),
       }).required(),
       tools: Joi.object({
         title: Joi.string().required(),
-        icon: Joi.string().required(),
         description: Joi.string().required(),
         technologies: Joi.array().items(Joi.string()).required(),
       }).required(),
     }).required(),
     interests: Joi.object({
       coding: Joi.object({
-        icon: Joi.string().required(),
         title: Joi.string().required(),
         description: Joi.string().required(),
       }).required(),
       learning: Joi.object({
-        icon: Joi.string().required(),
         title: Joi.string().required(),
         description: Joi.string().required(),
       }).required(),
       problemSolving: Joi.object({
-        icon: Joi.string().required(),
         title: Joi.string().required(),
         description: Joi.string().required(),
       }).required(),
       collaboration: Joi.object({
-        icon: Joi.string().required(),
         title: Joi.string().required(),
         description: Joi.string().required(),
       }).required(),
@@ -96,7 +89,7 @@ const portfolioSchema = Joi.object({
         solutions: Joi.array().items(Joi.string()).required(),
         github: Joi.string().uri().required(),
         live: Joi.string().uri().required(),
-        status: Joi.string().valid('in-development', 'completed').required(),
+        status: Joi.string().valid("in-development", "completed").required(),
       })
     )
     .required(),
