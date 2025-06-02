@@ -17,7 +17,6 @@ router.patch(
 );
 router.post(
   "/",
-  verifyAuthKey as RequestHandler,
   validatePortfolio as RequestHandler,
   createPortfolio as RequestHandler
 );
